@@ -195,3 +195,13 @@ Index: wxsqlite3-3.2.1/Makefile.in
  @COND_SHARED_1@	(cd $(DESTDIR)$(libdir) ; $(__wxsqlite3_dll___so_symlinks_uninst_cmd))
  
  @COND_SHARED_1@install_wxsqlite3_dll_headers: 
+--- a/wxsqlite3.pc.in	2017-01-16 23:08:52.936667609 +0000
++++ b/wxsqlite3-3.4.1/wxsqlite3.pc.in	2017-01-16 23:08:57.751480666 +0000
+@@ -9,6 +9,6 @@
+ Description: SQLite3 C++ wrapper for use in programs based on the wxWidgets
+ Version: @VERSION@
+ #Requires: sqlite3
+-Libs: -L${libdir} -lwxcode_@PORT@@LIBMOD@_wxsqlite3-@WXVERSION@
++Libs: -L${libdir} -lwx_@PORT@@LIBMOD@_wxsqlite3-@WXVERSION@
+ Libs.private: -lpthread
+ Cflags: -I${includedir}

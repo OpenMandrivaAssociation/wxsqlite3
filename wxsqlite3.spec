@@ -7,7 +7,7 @@
 
 Name:           wxsqlite3
 Version:        3.4.1
-Release:        %mkrel 1
+Release:        1
 Summary:        C++ wrapper around the SQLite 3.x database
 Group:          System/Libraries
 License:        wxWidgets
