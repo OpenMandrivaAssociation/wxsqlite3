@@ -52,7 +52,7 @@ applications that use %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 # activate correct build folder
 mv build30 build
