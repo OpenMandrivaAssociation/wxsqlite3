@@ -11,7 +11,7 @@ Release:        1
 Summary:        C++ wrapper around the SQLite 3.x database
 Group:          System/Libraries
 License:        wxWidgets
-URL:            http://utelle.github.io/wxsqlite3
+URL:            https://utelle.github.io/wxsqlite3
 Source0:        https://github.com/utelle/wxsqlite3/archive/v%{version}/%{name}-%{version}.tar.gz
 Patch0:         wxsqlite3-3.3.0-mga-fix-soname.patch
 
