@@ -54,23 +54,17 @@ applications that use %{name}.
 %setup -q
 %autopatch -p1
 
-# activate correct build folder
-mv build30 build
-
-# set correct permission
-chmod a+x configure
-
 # delete bundled sqlite3 files
 rm -rf sqlite3
 
 dos2unix readme.md
 
 %build
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # move headers from /usr/include/wx to /usr/include/wx-?.?/wx
 install -d %{buildroot}%{wxincdir}
