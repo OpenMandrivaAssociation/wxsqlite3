@@ -80,5 +80,5 @@ install -D -m644 %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 
 %files -n       %{devname}
 %{wxincdir}/wx/%{name}*.h
-%{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so
+#{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so
 %{_libdir}/pkgconfig/%{name}.pc
