@@ -75,8 +75,8 @@ install -D -m644 %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 
 %files -n       %{libname}
 %doc LICENCE.txt readme.md
-%{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}
-%{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}.*
+#{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}
+#{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}.*
 
 %files -n       %{devname}
 %{wxincdir}/wx/%{name}*.h
