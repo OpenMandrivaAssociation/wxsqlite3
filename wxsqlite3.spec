@@ -1,4 +1,4 @@
-%global wxversion 3.0
+%global wxversion 3.2
 %global wxincdir %{_includedir}/wx-%{wxversion}
 %define major 0
 
@@ -6,14 +6,13 @@
 %define devname %mklibname %{name}_ %{wxversion} -d
 
 Name:           wxsqlite3
-Version:        3.4.1
+Version:        4.10.6
 Release:        1
 Summary:        C++ wrapper around the SQLite 3.x database
 Group:          System/Libraries
 License:        wxWidgets
 URL:            https://utelle.github.io/wxsqlite3
 Source0:        https://github.com/utelle/wxsqlite3/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:         wxsqlite3-3.3.0-mga-fix-soname.patch
 
 BuildRequires:  dos2unix
 BuildRequires:  pkgconfig(sqlite3)
@@ -51,14 +50,7 @@ This package contains libraries and header files for developing
 applications that use %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
-
-# activate correct build folder
-mv build30 build
-
-# set correct permission
-chmod a+x configure
+%autosetup -p1
 
 # delete bundled sqlite3 files
 rm -rf sqlite3
@@ -66,11 +58,11 @@ rm -rf sqlite3
 dos2unix readme.md
 
 %build
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # move headers from /usr/include/wx to /usr/include/wx-?.?/wx
 install -d %{buildroot}%{wxincdir}
@@ -81,10 +73,9 @@ install -D -m644 %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 
 %files -n       %{libname}
 %doc LICENCE.txt readme.md
-%{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}
-%{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}.*
+%{_libdir}/libwxcode_gtk3u_wxsqlite3-%{wxversion}.so.%{major}*
 
 %files -n       %{devname}
 %{wxincdir}/wx/%{name}*.h
-%{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so
+%{_libdir}/libwxcode_gtk3u_wxsqlite3-%{wxversion}.so
 %{_libdir}/pkgconfig/%{name}.pc
