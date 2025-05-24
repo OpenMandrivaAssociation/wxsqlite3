@@ -13,7 +13,6 @@ Group:          System/Libraries
 License:        wxWidgets
 URL:            https://utelle.github.io/wxsqlite3
 Source0:        https://github.com/utelle/wxsqlite3/archive/v%{version}/%{name}-%{version}.tar.gz
-#Patch0:         wxsqlite3-3.3.0-mga-fix-soname.patch
 
 BuildRequires:  dos2unix
 BuildRequires:  pkgconfig(sqlite3)
@@ -51,8 +50,7 @@ This package contains libraries and header files for developing
 applications that use %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 # delete bundled sqlite3 files
 rm -rf sqlite3
@@ -75,10 +73,9 @@ install -D -m644 %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 
 %files -n       %{libname}
 %doc LICENCE.txt readme.md
-#{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}
-#{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so.%{major}.*
+%{_libdir}/libwxcode_gtk3u_wxsqlite3-%{wxversion}.so.%{major}*
 
 %files -n       %{devname}
 %{wxincdir}/wx/%{name}*.h
-#{_libdir}/libwx_gtk?u_%{name}-%{wxversion}.so
+%{_libdir}/libwxcode_gtk3u_wxsqlite3-%{wxversion}.so
 %{_libdir}/pkgconfig/%{name}.pc
