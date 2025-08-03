@@ -6,7 +6,7 @@
 %define devname %mklibname %{name}_ %{wxversion} -d
 
 Name:           wxsqlite3
-Version:        4.10.7
+Version:        4.10.12
 Release:        1
 Summary:        C++ wrapper around the SQLite 3.x database
 Group:          System/Libraries
