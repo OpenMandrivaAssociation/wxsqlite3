@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global wxversion 3.2
 %global wxincdir %{_includedir}/wx-%{wxversion}
 %define major 0
@@ -6,7 +7,7 @@
 %define devname %mklibname %{name}_ %{wxversion} -d
 
 Name:           wxsqlite3
-Version:        4.10.12
+Version:        4.11.2
 Release:        1
 Summary:        C++ wrapper around the SQLite 3.x database
 Group:          System/Libraries
@@ -73,6 +74,9 @@ dos2unix readme.md
 install -d %{buildroot}%{wxincdir}
 mv %{buildroot}%{_includedir}/wx %{buildroot}%{wxincdir}
 
+# install multiple cipher support headers
+install -m644 src/*.h %{buildroot}%{wxincdir}/wx
+
 # install pkgconfig file
 install -D -m644 %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 
@@ -82,5 +86,7 @@ install -D -m644 %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 
 %files -n       %{devname}
 %{wxincdir}/wx/%{name}*.h
+%{wxincdir}/wx/sqlite3mc_amalgamation.h
+%{wxincdir}/wx/sqlite3mc_config.h
 %{_libdir}/libwxcode_gtk3u_wxsqlite3-%{wxversion}.so
 %{_libdir}/pkgconfig/%{name}.pc
